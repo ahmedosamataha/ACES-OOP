@@ -1,8 +1,29 @@
+import itertools
+counter = itertools.count()
 class Matrix:
-    def __init__(self, row1, row2, row3, row4):
+    id_generator = itertools.count(0)
+
+    def __init__(self, row1):
         self.row1 = row1
-        self.row2 = row2
-        self.row3 = row3
-        self.row4 = row4
-A = Matrix([1,2,3],[3,4,5],[5,6,7],[7,8,9])
-print(A.row3)   
+        self.id = next(self.id_generator)
+    def rows(self):
+        return len(self.row1)
+    def cols(self):
+        return len(self.row1[0])
+    def dimensions(self) :
+        return '{} * {}' .format(self.rows(),self.cols())
+    def description(self):
+        print( *self.row1, sep = "\n" )
+    def matrix(self):
+        a =([0])
+        print (a)
+    def get_id(self):
+        return self.id
+A = Matrix([[1,2,3],[3,4,5],[5,6,7]])
+B = Matrix([[1,2,3],[2,4,5]])
+print(A.rows())
+print(A.cols())
+print(A.dimensions())
+print(A.get_id())
+print(A.description())
+print(A.matrix())
